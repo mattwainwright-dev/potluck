@@ -1,16 +1,75 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+# Pulseluck Planner
 
-Currently, two official plugins are available:
+**Good food. Good people. One heartbeat.**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Pulseluck Planner is a React application that helps guests organize meals for a potluck gathering. It uses Supabase to store and manage meals.
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- View saved meals from Supabase.
+- Add a meal with a guest name and serving count.
+- Remove individual meals by ID.
+- Keep meal data after refreshing the page.
+- Display meals using reusable React components.
+- Custom PULSE styling with a cyan particle background.
 
-## Expanding the Oxlint configuration
+## Technologies
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+- React
+- Vite
+- JavaScript
+- Supabase
+- CSS
+- Bun
+
+## Getting Started
+
+Clone the repository:
+
+```bash
+git clone https://github.com/mattwainwright-dev/potluck.git
+cd potluck
+bun install
+```
+
+Create a `.env.local` file in the project root:
+
+```env
+VITE_SUPABASE_URL=your_supabase_project_url
+VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_publishable_key
+```
+
+Start the development server:
+
+```bash
+bun run dev
+```
+
+## Database
+
+The application uses a Supabase table named `meals` with these fields:
+
+- `id` — Unique meal identifier
+- `meal_name` — Name of the dish
+- `guest_name` — Person bringing the dish
+- `serves` — Number of servings
+
+## Testing
+
+Verified locally:
+
+- Meals load from Supabase.
+- New meals can be added and remain after refresh.
+- Removing a meal deletes the selected record.
+- Other meals remain after deletion.
+
+## Deployment
+
+Netlify deployment is planned. Configure the two Vite environment variables in Netlify before building the site.
+
+## Author
+
+Matthew Wainwright
+
+CodeX Academy — Level 3, Week 5
